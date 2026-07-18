@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">homebridge-sabnzbd OpenGraph image</title>
+  <desc id="desc">OpenGraph image for homebridge-sabnzbd.</desc>
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <rect x="60" y="60" width="1080" height="510" rx="48" fill="#164E63"/>
+  <rect x="104" y="104" width="250" height="250" rx="60" fill="#2563EB"/>
+  <path d="M152 272c10-72 64-128 130-128s120 56 130 128h-45c-9-47-43-82-85-82s-76 35-85 82h-45z" fill="#D9F99D"/>
+  <path d="M146 290h272v43H146z" fill="#F8FAFC"/>
+  <path d="M282 125c12 0 22 10 22 22v104l30-30a22 22 0 0 1 31 31l-67 67a22 22 0 0 1-31 0l-67-67a22 22 0 1 1 31-31l30 30V147c0-12 10-22 21-22z" fill="#F8FAFC"/>
+  <text x="420" y="245" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">homebridge-sabnzbd</text>
+  <text x="424" y="330" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="34">HomeKit supervision and controls for SABnzbd</text>
+  <text x="424" y="405" fill="#DCFCE7" font-family="Inter, Arial, sans-serif" font-size="28">Dynamic platform • TypeScript • Homebridge 2.x ready</text>
+</svg>

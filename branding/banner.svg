@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" role="img" aria-labelledby="title desc">
+  <title id="title">homebridge-sabnzbd banner</title>
+  <desc id="desc">Banner for the homebridge-sabnzbd Homebridge plugin.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1600" y1="0" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset=".45" stop-color="#164E63"/>
+      <stop offset="1" stop-color="#14532D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <g transform="translate(120 70) scale(.36)">
+    <rect width="1024" height="1024" rx="224" fill="#2563EB"/>
+    <path d="M248 654c20-146 130-260 264-260s244 114 264 260h-92c-18-96-88-168-172-168s-154 72-172 168h-92z" fill="#D9F99D"/>
+    <path d="M236 692h552v86H236z" fill="#F8FAFC"/>
+    <path d="M512 232c24 0 44 20 44 44v212l62-62a44 44 0 0 1 62 62L543 625a44 44 0 0 1-62 0L344 488a44 44 0 0 1 62-62l62 62V276c0-24 20-44 44-44z" fill="#F8FAFC"/>
+    <circle cx="760" cy="284" r="76" fill="#BEF264"/>
+  </g>
+  <text x="560" y="215" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="800">homebridge-sabnzbd</text>
+  <text x="565" y="300" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="36">Monitor and control SABnzbd from HomeKit</text>
+  <rect x="565" y="350" width="510" height="18" rx="9" fill="#BEF264"/>
+  <rect x="565" y="350" width="355" height="18" rx="9" fill="#38BDF8"/>
+</svg>

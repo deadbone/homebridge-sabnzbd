@@ -1,0 +1,89 @@
+{
+  "pluginAlias": "Sabnzbd",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "SABnzbd"
+      },
+      "url": {
+        "title": "SABnzbd URL",
+        "type": "string",
+        "format": "uri",
+        "placeholder": "http://sabnzbd.example:8080",
+        "required": true
+      },
+      "apiKey": {
+        "title": "API Key",
+        "type": "string",
+        "required": true
+      },
+      "timeoutMs": {
+        "title": "Timeout",
+        "type": "integer",
+        "default": 10000,
+        "minimum": 1000,
+        "maximum": 120000
+      },
+      "refreshIntervalSeconds": {
+        "title": "Refresh Interval",
+        "type": "integer",
+        "default": 30,
+        "minimum": 10,
+        "maximum": 3600
+      },
+      "temporaryPauseMinutes": {
+        "title": "Temporary Pause Minutes",
+        "type": "integer",
+        "default": 15,
+        "minimum": 1,
+        "maximum": 1440
+      },
+      "speedLimitPercent": {
+        "title": "Preset Speed Limit",
+        "type": "integer",
+        "default": 50,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "recentFailureWindowHours": {
+        "title": "Recent Failure Window",
+        "type": "integer",
+        "default": 24,
+        "minimum": 1,
+        "maximum": 720
+      },
+      "clearWarningsEnabled": {
+        "title": "Expose Clear Warnings Switch",
+        "type": "boolean",
+        "default": false
+      },
+      "exposeDebugInfo": {
+        "title": "Expose Debug Info",
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "layout": [
+    {
+      "type": "fieldset",
+      "title": "Connection",
+      "items": ["name", "url", "apiKey", "timeoutMs", "refreshIntervalSeconds"]
+    },
+    {
+      "type": "fieldset",
+      "title": "Controls",
+      "items": [
+        "temporaryPauseMinutes",
+        "speedLimitPercent",
+        "recentFailureWindowHours",
+        "clearWarningsEnabled"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "homebridge-sabnzbd",
+  "version": "0.1.0",
+  "description": "Homebridge dynamic platform plugin to monitor and control SABnzbd.",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "config.schema.json",
+    "README.md",
+    "README.fr.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "branding"
+  ],
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "sabnzbd",
+    "usenet",
+    "homekit"
+  ],
+  "engines": {
+    "node": "^22 || ^24",
+    "homebridge": "^2.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src test --ext .ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@types/node": "^24.0.14",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0",
+    "homebridge": "^2.2.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0",
+    "vitest": "^3.2.4"
+  },
+  "homebridge": {
+    "pluginAlias": "Sabnzbd",
+    "pluginType": "platform"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GITHUB_OWNER/GITHUB_REPOSITORY.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GITHUB_OWNER/GITHUB_REPOSITORY/issues"
+  },
+  "homepage": "https://github.com/GITHUB_OWNER/GITHUB_REPOSITORY#readme"
+}
