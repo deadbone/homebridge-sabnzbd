@@ -1,21 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
   <title id="title">homebridge-sabnzbd transparent logo</title>
-  <desc id="desc">Transparent bridge and download queue mark for the homebridge-sabnzbd plugin.</desc>
+  <desc id="desc">Transparent yellow, black and white download bridge mark for the homebridge-sabnzbd plugin.</desc>
   <defs>
-    <linearGradient id="rail" x1="250" x2="774" y1="312" y2="760" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#D9F99D"/>
+    <linearGradient id="arrow" x1="338" x2="686" y1="158" y2="716" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF5C2"/>
+      <stop offset="0.55" stop-color="#FFD23A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#0F172A" flood-opacity="0.24"/>
+      <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#1F1300" flood-opacity="0.32"/>
     </filter>
   </defs>
   <g filter="url(#shadow)">
-    <path d="M248 654c20-146 130-260 264-260s244 114 264 260h-92c-18-96-88-168-172-168s-154 72-172 168h-92z" fill="url(#rail)"/>
-    <path d="M236 692h552v86H236z" fill="#F8FAFC"/>
-    <path d="M326 692h72v86h-72zm150 0h72v86h-72zm150 0h72v86h-72z" fill="#0F766E" opacity=".36"/>
-    <path d="M512 232c24 0 44 20 44 44v212l62-62a44 44 0 0 1 62 62L543 625a44 44 0 0 1-62 0L344 488a44 44 0 0 1 62-62l62 62V276c0-24 20-44 44-44z" fill="#F8FAFC"/>
-    <circle cx="760" cy="284" r="76" fill="#BEF264"/>
-    <path d="M728 284h64m-32-32v64" stroke="#166534" stroke-width="34" stroke-linecap="round"/>
+    <path d="M364 126h296v292h158L512 812 206 418h158V126z" fill="#111111"/>
+    <path d="M418 180h188v292h102L512 724 316 472h102V180z" fill="url(#arrow)"/>
+    <path d="M250 686c20-120 130-214 262-214s242 94 262 214h-94c-23-68-88-116-168-116s-145 48-168 116h-94z" fill="#111111"/>
+    <path d="M312 686c32-61 107-100 200-100s168 39 200 100h-76c-28-27-72-43-124-43s-96 16-124 43h-76z" fill="#FFFFFF"/>
+    <path d="M232 736h560c24 0 44 20 44 44v52H188v-52c0-24 20-44 44-44z" fill="#111111"/>
+    <path d="M270 776h484v56H270z" fill="#FFFFFF"/>
+    <path d="M366 776h58v56h-58zm120 0h58v56h-58zm120 0h58v56h-58z" fill="#111111" opacity=".22"/>
   </g>
 </svg>
