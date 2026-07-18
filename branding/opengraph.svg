@@ -1,13 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">homebridge-sabnzbd OpenGraph image</title>
   <desc id="desc">OpenGraph image for homebridge-sabnzbd.</desc>
-  <rect width="1200" height="630" fill="#0F172A"/>
-  <rect x="60" y="60" width="1080" height="510" rx="48" fill="#164E63"/>
-  <rect x="104" y="104" width="250" height="250" rx="60" fill="#2563EB"/>
-  <path d="M152 272c10-72 64-128 130-128s120 56 130 128h-45c-9-47-43-82-85-82s-76 35-85 82h-45z" fill="#D9F99D"/>
-  <path d="M146 290h272v43H146z" fill="#F8FAFC"/>
-  <path d="M282 125c12 0 22 10 22 22v104l30-30a22 22 0 0 1 31 31l-67 67a22 22 0 0 1-31 0l-67-67a22 22 0 1 1 31-31l30 30V147c0-12 10-22 21-22z" fill="#F8FAFC"/>
-  <text x="420" y="245" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">homebridge-sabnzbd</text>
-  <text x="424" y="330" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="34">HomeKit supervision and controls for SABnzbd</text>
-  <text x="424" y="405" fill="#DCFCE7" font-family="Inter, Arial, sans-serif" font-size="28">Dynamic platform • TypeScript • Homebridge 2.x ready</text>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1200" y1="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset=".5" stop-color="#2B1A00"/>
+      <stop offset="1" stop-color="#F28C00"/>
+    </linearGradient>
+    <linearGradient id="markBg" x1="104" x2="354" y1="104" y2="354" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE08A"/>
+      <stop offset=".42" stop-color="#FFC21A"/>
+      <stop offset="1" stop-color="#F28C00"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="180" x2="284" y1="126" y2="310" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF5C2"/>
+      <stop offset=".55" stop-color="#FFD23A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="48" fill="#FFFFFF" opacity=".08"/>
+  <rect x="104" y="104" width="250" height="250" rx="60" fill="url(#markBg)"/>
+  <path d="M193 126h72v72h39l-75 96-75-96h39v-72z" fill="#111111"/>
+  <path d="M206 140h46v72h25l-48 62-48-62h25v-72z" fill="url(#arrow)"/>
+  <path d="M166 276c5-29 32-52 63-52s58 23 63 52h-23c-6-16-22-28-40-28s-34 12-40 28h-23z" fill="#111111"/>
+  <path d="M181 276c8-15 26-24 48-24s40 9 48 24h-19c-7-6-17-10-29-10s-22 4-29 10h-19z" fill="#FFFFFF"/>
+  <path d="M162 288h134c6 0 11 5 11 11v13H151v-13c0-6 5-11 11-11z" fill="#111111"/>
+  <path d="M172 298h114v14H172z" fill="#FFFFFF"/>
+  <text x="420" y="245" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">homebridge-sabnzbd</text>
+  <text x="424" y="330" fill="#FFF3C4" font-family="Inter, Arial, sans-serif" font-size="34">HomeKit supervision and controls for SABnzbd</text>
+  <text x="424" y="405" fill="#FFFFFF" opacity=".82" font-family="Inter, Arial, sans-serif" font-size="28">Dynamic platform • TypeScript • Homebridge 2.x ready</text>
 </svg>

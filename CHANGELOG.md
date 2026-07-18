@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
-- Refined the plugin icon with a yellow, orange, black and white palette inspired by SABnzbd.
+- Refined the plugin icon, banner and OpenGraph image with a yellow, orange, black and white palette inspired by SABnzbd.
 
 ## [0.1.0] - 2026-07-18
 

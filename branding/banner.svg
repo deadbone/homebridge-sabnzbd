@@ -3,21 +3,36 @@
   <desc id="desc">Banner for the homebridge-sabnzbd Homebridge plugin.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1600" y1="0" y2="500" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0F172A"/>
-      <stop offset=".45" stop-color="#164E63"/>
-      <stop offset="1" stop-color="#14532D"/>
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset=".48" stop-color="#2B1A00"/>
+      <stop offset="1" stop-color="#F28C00"/>
+    </linearGradient>
+    <linearGradient id="markBg" x1="120" x2="488" y1="70" y2="438" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE08A"/>
+      <stop offset=".42" stop-color="#FFC21A"/>
+      <stop offset="1" stop-color="#F28C00"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="230" x2="380" y1="104" y2="358" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF5C2"/>
+      <stop offset=".55" stop-color="#FFD23A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
     </linearGradient>
   </defs>
   <rect width="1600" height="500" fill="url(#bg)"/>
-  <g transform="translate(120 70) scale(.36)">
-    <rect width="1024" height="1024" rx="224" fill="#2563EB"/>
-    <path d="M248 654c20-146 130-260 264-260s244 114 264 260h-92c-18-96-88-168-172-168s-154 72-172 168h-92z" fill="#D9F99D"/>
-    <path d="M236 692h552v86H236z" fill="#F8FAFC"/>
-    <path d="M512 232c24 0 44 20 44 44v212l62-62a44 44 0 0 1 62 62L543 625a44 44 0 0 1-62 0L344 488a44 44 0 0 1 62-62l62 62V276c0-24 20-44 44-44z" fill="#F8FAFC"/>
-    <circle cx="760" cy="284" r="76" fill="#BEF264"/>
+  <rect x="0" y="0" width="1600" height="500" fill="#FFFFFF" opacity=".04"/>
+  <g transform="translate(120 70)">
+    <rect width="368" height="368" rx="80" fill="url(#markBg)"/>
+    <path d="M42 72h284v224c0 17-14 31-31 31H73c-17 0-31-14-31-31V72z" fill="#111111" opacity=".12"/>
+    <path d="M131 45h106v105h57L184 292 74 150h57V45z" fill="#111111"/>
+    <path d="M150 65h68v105h37l-71 91-71-91h37V65z" fill="url(#arrow)"/>
+    <path d="M90 247c7-43 47-77 94-77s87 34 94 77h-34c-8-24-32-42-60-42s-52 18-60 42H90z" fill="#111111"/>
+    <path d="M112 247c12-22 39-36 72-36s60 14 72 36h-28c-10-10-26-16-44-16s-34 6-44 16h-28z" fill="#FFFFFF"/>
+    <path d="M84 265h200c9 0 16 7 16 16v19H68v-19c0-9 7-16 16-16z" fill="#111111"/>
+    <path d="M98 279h174v21H98z" fill="#FFFFFF"/>
+    <path d="M133 279h20v21h-20zm43 0h20v21h-20zm43 0h20v21h-20z" fill="#111111" opacity=".22"/>
   </g>
-  <text x="560" y="215" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="800">homebridge-sabnzbd</text>
-  <text x="565" y="300" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="36">Monitor and control SABnzbd from HomeKit</text>
-  <rect x="565" y="350" width="510" height="18" rx="9" fill="#BEF264"/>
-  <rect x="565" y="350" width="355" height="18" rx="9" fill="#38BDF8"/>
+  <text x="560" y="214" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="800">homebridge-sabnzbd</text>
+  <text x="565" y="300" fill="#FFF3C4" font-family="Inter, Arial, sans-serif" font-size="36">Monitor and control SABnzbd from HomeKit</text>
+  <rect x="565" y="350" width="510" height="18" rx="9" fill="#111111" opacity=".55"/>
+  <rect x="565" y="350" width="355" height="18" rx="9" fill="#FFD23A"/>
 </svg>
