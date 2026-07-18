@@ -2,36 +2,47 @@
 
 # homebridge-sabnzbd
 
-`homebridge-sabnzbd` est un plugin Homebridge de type plateforme dynamique pour superviser et piloter une instance SABnzbd via son API HTTP JSON officielle.
+Plugin de plateforme dynamique Homebridge permettant de superviser et piloter une instance SABnzbd depuis Apple Maison.
 
-## Fonctionnalites
+> Version initiale : ce plugin est actuellement en `0.1.0`.
 
-- Supervision de la joignabilite et de l'etat du serveur.
-- Pause et reprise de la file depuis Apple Maison.
-- Commandes momentanées pour pause temporaire, limite de vitesse prédéfinie, vitesse normale et rafraichissement manuel.
-- Commande optionnelle pour effacer les avertissements SABnzbd.
-- Capteurs pour téléchargement actif, présence d'éléments en file, avertissements et dernier téléchargement en erreur.
-- Services numériques pour progression de file, vitesse, espace disque libre, nombre d'éléments et échecs récents.
-- Reconnexion automatique après erreur API, timeout ou perte réseau temporaire.
-- Compatibilité avec le schema Homebridge Config UI X.
+> Note de sécurité : les actions destructrices SABnzbd ne sont volontairement pas implémentées. Le plugin ne peut pas supprimer de téléchargements, purger la file, effacer l'historique, arrêter SABnzbd ou redémarrer SABnzbd.
 
-Les actions destructrices comme supprimer un téléchargement, purger la file, effacer l'historique, arrêter SABnzbd ou redémarrer SABnzbd ne sont volontairement pas implémentées.
+## Compatibilite
 
-## Prérequis
-
-- Homebridge 2.x.
-- Versions Node.js supportées par la version courante de Homebridge.
-- SABnzbd 5.0.4 ou une autre version stable 5.x compatible.
+- Homebridge : `^2.0.0`
+- Node.js : `^22 || ^24`
+- SABnzbd : API stable 5.x, développé contre SABnzbd 5.0.4
+- Type de plugin : plateforme dynamique
+- Format de module : ESM
 
 ## Installation
 
-```bash
+### Homebridge UI
+
+Une fois le paquet publié sur npm, installez-le depuis Homebridge UI :
+
+1. Ouvrez Homebridge UI.
+2. Allez dans **Plugins**.
+3. Recherchez `homebridge-sabnzbd`.
+4. Cliquez sur **Install**.
+5. Redémarrez Homebridge.
+
+### npm
+
+```sh
 npm install -g homebridge-sabnzbd
 ```
 
-## Configuration
+### Installation Locale De Developpement
 
-Utilisez Homebridge Config UI X ou ajoutez un bloc plateforme :
+```sh
+npm install
+npm run build
+npm link
+```
+
+## Configuration
 
 ```json
 {
@@ -39,8 +50,8 @@ Utilisez Homebridge Config UI X ou ajoutez un bloc plateforme :
   "name": "SABnzbd",
   "url": "http://sabnzbd.example:8080",
   "apiKey": "YOUR_SABNZBD_API_KEY",
-  "refreshIntervalSeconds": 30,
   "timeoutMs": 10000,
+  "refreshIntervalSeconds": 30,
   "temporaryPauseMinutes": 15,
   "speedLimitPercent": 50,
   "recentFailureWindowHours": 24,
@@ -48,34 +59,28 @@ Utilisez Homebridge Config UI X ou ajoutez un bloc plateforme :
 }
 ```
 
-La clé API n'est jamais écrite dans les logs.
+La clé API SABnzbd est disponible dans **Config > General > Security**. Elle est configurée comme champ mot de passe dans Homebridge UI et n'est jamais écrite dans les logs.
 
-## Modélisation HomeKit
+## Services HomeKit
 
-- Interrupteur principal activé : pause de la file.
-- Interrupteur principal désactivé : reprise de la file.
-- `Downloading` : capteur d'occupation.
-- `Queue` : capteur de contact, ouvert quand la file contient des éléments.
-- `Warnings` : capteur de fuite, actif quand SABnzbd signale des avertissements.
-- `Last Download Failed` : capteur de mouvement.
-- Les services de type capteur de luminosité exposent des valeurs numériques, car HomeKit n'a pas de type natif SABnzbd.
+- Interrupteur principal : pause ou reprise de la file.
+- `Temporary Pause` : pause temporaire configurée.
+- `Speed Limit` : limite de vitesse prédéfinie.
+- `Normal Speed` : retour à `100%`.
+- `Refresh` : rafraichissement manuel.
+- `Clear Warnings` : optionnel, seulement si activé.
+- Capteurs : téléchargement actif, file non vide, avertissements, dernier téléchargement en erreur.
+- Valeurs numériques : progression, vitesse, disque libre, nombre d'éléments, échecs récents.
 
-## Développement
+## Securite
 
-```bash
-npm install
-npm run lint
-npm test
-npm run build
-```
+- Aucun service cloud.
+- Aucune télémétrie.
+- Communication uniquement avec l'URL SABnzbd configurée.
+- Clé API jamais journalisée.
+- Aucune action destructrice SABnzbd.
+- Validation TLS conservée.
 
-## Sources officielles
+## Documentation Detaillee
 
-- [Documentation développeur Homebridge](https://developers.homebridge.io)
-- [Template officiel Homebridge](https://github.com/homebridge/homebridge-plugin-template)
-- [Exigences Homebridge Verified Plugin](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
-- [Référence API SABnzbd](https://sabnzbd.org/wiki/configuration/5.0/api)
-
-## Licence
-
-MIT
+Le README principal contient la documentation bilingue complète. Le dossier `wiki/` contient les pages détaillées destinées au GitHub Wiki.

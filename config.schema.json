@@ -2,9 +2,16 @@
   "pluginAlias": "Sabnzbd",
   "pluginType": "platform",
   "singular": true,
+  "strictValidation": true,
   "schema": {
     "type": "object",
+    "required": ["platform", "url", "apiKey"],
+    "additionalProperties": false,
     "properties": {
+      "platform": {
+        "type": "string",
+        "default": "Sabnzbd"
+      },
       "name": {
         "title": "Name",
         "type": "string",
@@ -20,6 +27,7 @@
       "apiKey": {
         "title": "API Key",
         "type": "string",
+        "format": "password",
         "required": true
       },
       "timeoutMs": {
@@ -69,7 +77,7 @@
       }
     }
   },
-  "layout": [
+  "form": [
     {
       "type": "fieldset",
       "title": "Connection",

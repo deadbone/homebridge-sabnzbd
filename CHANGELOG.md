@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Reworked README documentation using the structure of the companion Homebridge plugin documentation.
+- Added GitHub Wiki-ready documentation pages for installation, configuration, HomeKit mapping, API usage, troubleshooting, security, development, FAQ and contribution.
+- Tightened the Homebridge UI schema with strict validation and password masking for the SABnzbd API key.
 - Refined the plugin icon, banner and OpenGraph image with a yellow, orange, black and white palette inspired by SABnzbd.
 - Updated README banner references to force GitHub to load the refreshed artwork.
 
