@@ -1,4 +1,4 @@
-![homebridge-sabnzbd banner](branding/banner.png)
+![homebridge-sabnzbd banner](branding/banner-sabnzbd.png)
 
 # homebridge-sabnzbd
 
