@@ -13,4 +13,13 @@ Contributions should keep the plugin suitable for future Homebridge Verified rev
 
 ## Francais
 
-Les contributions doivent préserver la compatibilité Homebridge, la sécurité et la simplicité du plugin. Les commandes destructrices SABnzbd ne doivent pas être ajoutées sans demande explicite.
+Les contributions doivent permettre au plugin de rester compatible avec une future revue Homebridge Verified.
+
+## Règles
+
+- Conserver TypeScript strict et entièrement typé.
+- Éviter les dépendances inutiles.
+- Ne pas journaliser les clés API, tokens ou données privées.
+- Ne pas ajouter de commandes destructrices SABnzbd sauf demande explicite, et les garder désactivées par défaut.
+- Mettre à jour README, wiki et changelog pour les changements visibles utilisateur.
+- Ajouter des tests pour les changements de comportement.

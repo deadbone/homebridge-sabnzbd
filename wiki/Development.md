@@ -30,4 +30,32 @@ npm_config_cache=/private/tmp/homebridge-sabnzbd-npm-cache npm pack --dry-run
 
 ## Francais
 
-Les tests simulent l'API SABnzbd et ne nécessitent pas d'instance réelle. Toute modification fonctionnelle doit mettre à jour README, wiki et changelog.
+## Commandes
+
+```sh
+npm install
+npm run lint
+npm run build
+npm test
+npm_config_cache=/private/tmp/homebridge-sabnzbd-npm-cache npm pack --dry-run
+```
+
+## Architecture
+
+- `src/index.ts` : enregistrement Homebridge.
+- `src/platform.ts` : cycle de vie de la plateforme dynamique et polling.
+- `src/sabnzbd-api.ts` : client HTTP JSON SABnzbd.
+- `src/accessories/sabnzbdAccessory.ts` : mapping des services HomeKit.
+- `src/settings.ts` : normalisation et validation de configuration.
+- `src/models/` : modèles typés des réponses SABnzbd.
+- `test/` : tests unitaires avec réponses API simulées.
+
+## Checklist De Release
+
+1. Mettre à jour README et pages wiki pour tout comportement visible utilisateur.
+2. Mettre à jour `CHANGELOG.md`.
+3. Lancer lint, build, tests et package dry-run.
+4. Commit et push.
+5. Créer une GitHub Release avant toute publication npm.
+
+Les tests simulent l'API SABnzbd et ne nécessitent pas d'instance réelle.

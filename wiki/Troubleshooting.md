@@ -28,4 +28,28 @@ The clear warnings switch exists only when `clearWarningsEnabled` is set to `tru
 
 ## Francais
 
-Vérifiez l'URL, la clé API, la connectivité entre Homebridge et SABnzbd, puis les logs Homebridge. L'URL ne doit pas inclure `/api`.
+## URL Obligatoire
+
+Configurez l'URL de base complète de SABnzbd :
+
+```text
+http://sabnzbd.example:8080
+```
+
+N'ajoutez pas `/api` ; le plugin l'ajoute automatiquement.
+
+## Erreurs D'authentification
+
+Vérifiez la clé API dans SABnzbd sous **Config > General > Security**. Assurez-vous qu'aucun espace n'a été copié au début ou à la fin.
+
+## Timeout Ou Instance Injoignable
+
+Vérifiez que Homebridge peut joindre SABnzbd sur l'hôte, le protocole et le port configurés.
+
+## Les Valeurs Ne Se Mettent Pas À Jour
+
+Consultez d'abord les logs Homebridge. Si l'API est joignable, vérifiez `refreshIntervalSeconds`.
+
+## Impossible D'effacer Les Avertissements
+
+L'interrupteur d'effacement des avertissements n'existe que lorsque `clearWarningsEnabled` vaut `true`.

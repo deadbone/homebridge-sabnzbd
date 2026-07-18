@@ -32,4 +32,32 @@ The plugin does not call destructive SABnzbd actions:
 
 ## Francais
 
-Le plugin utilise `queue`, `history` et `status` pour construire l'état HomeKit. Les commandes implémentées sont limitées à la pause, reprise, pause temporaire, limite de vitesse, retour vitesse normale et effacement optionnel des avertissements.
+Le plugin utilise l'API HTTP JSON officielle de SABnzbd avec `output=json`.
+
+## Polling
+
+Chaque rafraichissement combine :
+
+- `mode=queue`
+- `mode=history`
+- `mode=status`
+
+Le résultat est normalisé dans un snapshot HomeKit unique.
+
+## Commandes
+
+- `mode=pause`
+- `mode=resume`
+- `mode=config&name=set_pause&value=<minutes>`
+- `mode=config&name=speedlimit&value=<percent>`
+- `mode=warnings&name=clear`, uniquement lorsque `clearWarningsEnabled` vaut `true`
+
+## Non Implémenté
+
+Le plugin n'appelle pas les actions destructrices SABnzbd :
+
+- supprimer un téléchargement ;
+- purger la file ;
+- effacer l'historique ;
+- arrêter SABnzbd ;
+- redémarrer SABnzbd.

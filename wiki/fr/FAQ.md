@@ -1,9 +1,5 @@
 # FAQ
 
-## Le plugin supprime-t-il des téléchargements ?
+La documentation française complète est maintenue dans la page wiki principale :
 
-Non. Les actions destructrices sont volontairement absentes.
-
-## Pourquoi les valeurs numériques sont-elles des capteurs de luminosité ?
-
-HomeKit n'a pas de type de service SABnzbd natif. Les capteurs de luminosité fournissent un affichage numérique simple et supporté.
+[FAQ](../FAQ.md#francais)

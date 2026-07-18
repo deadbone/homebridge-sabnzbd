@@ -1,9 +1,5 @@
 # Installation
 
-Installez le plugin depuis Homebridge Config UI X ou avec npm :
+La documentation française complète est maintenue dans la page wiki principale :
 
-```bash
-npm install -g homebridge-sabnzbd
-```
-
-Redémarrez Homebridge après configuration.
+[Installation](../Installation.md#francais)

@@ -1,3 +1,5 @@
 # Changelog
 
-Voir [CHANGELOG.md](../../CHANGELOG.md).
+La documentation française complète est maintenue dans la page wiki principale :
+
+[Changelog](../Changelog.md#francais)

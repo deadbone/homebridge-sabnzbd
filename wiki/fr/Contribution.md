@@ -1,3 +1,5 @@
 # Contribution
 
-Gardez les changements courts, typés et couverts par des tests. Mettez à jour les README et le wiki quand le comportement change.
+La documentation française complète est maintenue dans la page wiki principale :
+
+[Contribution](../Contribution.md#francais)

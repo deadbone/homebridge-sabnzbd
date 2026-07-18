@@ -20,4 +20,20 @@ Momentary switches automatically return to `Off` after the command runs.
 
 ## Francais
 
-HomeKit ne fournit pas de type SABnzbd natif. Le plugin utilise donc des services standards : interrupteurs, capteurs et services numériques. Les interrupteurs de commande sont momentanés sauf l'interrupteur principal de pause/reprise.
+HomeKit ne fournit pas de type de service SABnzbd natif. Le plugin mappe donc l'état SABnzbd vers des services HomeKit supportés.
+
+| Service HomeKit | Signification |
+| --- | --- |
+| Interrupteur principal | `On` met la file en pause, `Off` reprend la file. |
+| Interrupteur `Temporary Pause` | Action momentanée qui applique `temporaryPauseMinutes`. |
+| Interrupteur `Speed Limit` | Action momentanée qui applique `speedLimitPercent`. |
+| Interrupteur `Normal Speed` | Action momentanée qui restaure `100%`. |
+| Interrupteur `Refresh` | Rafraichissement manuel momentané. |
+| Interrupteur `Clear Warnings` | Action momentanée optionnelle, désactivée par défaut. |
+| Capteur d'occupation `Downloading` | Actif lorsqu'un élément de file est en téléchargement. |
+| Capteur de contact `Queue` | Ouvert lorsque la file contient des éléments. |
+| Capteur de fuite `Warnings` | Actif lorsque SABnzbd signale des avertissements. |
+| Capteur de mouvement `Last Download Failed` | Actif lorsque le dernier élément d'historique est en échec. |
+| Services numériques | Progression, vitesse, disque, nombre d'éléments, échecs récents. |
+
+Les interrupteurs momentanés reviennent automatiquement sur `Off` après l'exécution de la commande.

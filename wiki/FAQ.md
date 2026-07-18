@@ -18,4 +18,18 @@ Yes, but only when `clearWarningsEnabled` is explicitly set to `true`.
 
 ## Francais
 
-Le plugin ne supprime aucun téléchargement. HTTPS est possible avec une URL `https://`. L'effacement des avertissements est disponible uniquement si l'option est explicitement activée.
+## Le Plugin Supprime-T-Il Des Téléchargements ?
+
+Non. Les actions destructrices ne sont volontairement pas implémentées.
+
+## Pourquoi Les Valeurs Numériques Ne Sont-Elles Pas Des Tuiles SABnzbd Natives ?
+
+HomeKit ne fournit pas de type de service SABnzbd. Le plugin utilise des services HomeKit supportés afin que l'accessoire reste compréhensible dans Apple Maison.
+
+## Puis-Je Utiliser HTTPS ?
+
+Oui, configurez une URL `https://`. Le plugin ne désactive pas globalement la validation TLS.
+
+## Puis-Je Effacer Les Avertissements ?
+
+Oui, mais uniquement lorsque `clearWarningsEnabled` est explicitement défini sur `true`.
