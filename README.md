@@ -158,7 +158,6 @@ Temporary connection loss, timeouts, authentication failures, and API errors are
 - Add integration tests against recorded SABnzbd API fixtures.
 - Add optional custom characteristic documentation for Homebridge UI users.
 - Add screenshots once the plugin is tested in a real Home app setup.
-- Add publishing automation after the npm package metadata is finalized.
 
 ### Troubleshooting
 
@@ -197,16 +196,28 @@ Tests mock the SABnzbd API and do not require a real SABnzbd instance.
 
 ### Publishing
 
-Before publishing:
+Publishing is automated through GitHub Actions and npm Trusted Publishing. No npm token is required or configured in GitHub.
+
+Before the first automated publish, configure the npm package Trusted Publisher:
+
+- Organization or user: `deadbone`
+- Repository: `homebridge-sabnzbd`
+- Workflow filename: `publish.yml`
+- Allowed actions: `npm publish`
+- Environment name: leave empty
+
+Release checklist:
 
 1. Confirm repository, bugs, homepage, author, and license metadata.
-2. Run `npm run lint`, `npm run build`, `npm test`, and `npm pack --dry-run`.
-3. Update `CHANGELOG.md`.
-4. Create a GitHub Release.
-5. Log in with `npm login`.
-6. Publish the stable release with `npm publish`.
+2. Update `package.json` version and `CHANGELOG.md`.
+3. Run `npm run lint`, `npm run build`, `npm test`, and `npm pack --dry-run`.
+4. Commit the release changes.
+5. Create and push a matching tag, for example `git tag v0.1.0 && git push origin v0.1.0`.
+6. Create the GitHub Release after the workflow publishes the package.
 
-For a scoped package, use `npm publish --access=public` the first time.
+The publish workflow runs only for tags matching `v*`. It installs Node.js 24.x and the latest npm, runs `npm ci`, verifies that the tag is exactly `v${package.json.version}`, runs lint, build, tests, and `npm pack --dry-run`, then publishes with `npm publish` using npm Trusted Publishing.
+
+For a future scoped package, use `npm publish --access=public` in the workflow for the first scoped publication.
 
 ## Francais
 
@@ -364,7 +375,6 @@ Les pertes de connexion temporaires, timeouts, erreurs d'authentification et err
 - Ajouter des tests d'intégration contre des fixtures API SABnzbd enregistrées.
 - Ajouter une documentation de caractéristiques personnalisées optionnelles pour les utilisateurs Homebridge UI.
 - Ajouter des captures d'écran après test dans une vraie configuration Apple Maison.
-- Ajouter une automatisation de publication une fois les métadonnées npm finalisées.
 
 ### Depannage
 
@@ -403,13 +413,25 @@ Les tests simulent l'API SABnzbd et ne nécessitent pas d'instance réelle.
 
 ### Publication
 
-Avant publication :
+La publication est automatisée via GitHub Actions et npm Trusted Publishing. Aucun token npm n'est requis ou configuré dans GitHub.
+
+Avant la première publication automatisée, configurez le Trusted Publisher du paquet npm :
+
+- Organization or user : `deadbone`
+- Repository : `homebridge-sabnzbd`
+- Workflow filename : `publish.yml`
+- Allowed actions : `npm publish`
+- Environment name : laisser vide
+
+Checklist de release :
 
 1. Vérifier les métadonnées repository, bugs, homepage, author et license.
-2. Exécuter `npm run lint`, `npm run build`, `npm test` et `npm pack --dry-run`.
-3. Mettre à jour `CHANGELOG.md`.
-4. Créer une GitHub Release.
-5. Se connecter avec `npm login`.
-6. Publier la version stable avec `npm publish`.
+2. Mettre à jour la version dans `package.json` et `CHANGELOG.md`.
+3. Exécuter `npm run lint`, `npm run build`, `npm test` et `npm pack --dry-run`.
+4. Committer les changements de release.
+5. Créer et pousser un tag correspondant, par exemple `git tag v0.1.0 && git push origin v0.1.0`.
+6. Créer la GitHub Release après publication du paquet par le workflow.
 
-Pour un paquet scopé, utiliser `npm publish --access=public` lors de la première publication.
+Le workflow de publication s'exécute uniquement pour les tags `v*`. Il installe Node.js 24.x et la dernière version de npm, lance `npm ci`, vérifie que le tag correspond exactement à `v${package.json.version}`, exécute lint, build, tests et `npm pack --dry-run`, puis publie avec `npm publish` via npm Trusted Publishing.
+
+Pour un futur paquet scopé, utiliser `npm publish --access=public` dans le workflow lors de la première publication scopée.
