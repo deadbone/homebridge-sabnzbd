@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sabnzbd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Homebridge dynamic platform plugin to monitor and control SABnzbd.",
   "type": "module",
   "license": "MIT",

@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { SabnzbdApi } from '../src/sabnzbd-api.js';
 import type { NormalizedSabnzbdConfig } from '../src/settings.js';
 
@@ -24,6 +24,11 @@ const log = {
 } as never;
 
 describe('SabnzbdApi', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.useRealTimers();
+  });
+
   it('maps queue, history and status responses to a snapshot', async () => {
     vi.stubGlobal(
       'fetch',
@@ -70,8 +75,59 @@ describe('SabnzbdApi', () => {
   });
 
   it('does not expose clear warnings unless explicitly enabled', async () => {
+    const fetch = vi.fn();
+    vi.stubGlobal('fetch', fetch);
+
     await expect(new SabnzbdApi(config, log).clearWarnings()).rejects.toThrow(
       'Clearing SABnzbd warnings is disabled',
     );
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('marks the snapshot unavailable when one of the required API requests fails', async () => {
+    vi.stubGlobal('fetch', vi.fn((url: URL) => {
+      switch (url.searchParams.get('mode')) {
+        case 'queue':
+          return Promise.resolve(Response.json({ queue: { status: 'Downloading', slots: [{ status: 'Downloading' }] } }));
+        case 'status':
+          return Promise.resolve(Response.json({ status: {} }));
+        default:
+          return Promise.resolve(new Response(null, { status: 503 }));
+      }
+    }));
+
+    const snapshot = await new SabnzbdApi(config, log).getSnapshot();
+
+    expect(snapshot).toMatchObject({
+      reachable: false,
+      status: 'Unavailable',
+      downloading: false,
+      hasWarnings: true,
+      errorMessage: 'SABnzbd returned HTTP 503.',
+    });
+  });
+
+  it('aborts a pending command at the configured timeout', async () => {
+    vi.useFakeTimers();
+    const fetch = vi.fn((_url: URL, { signal }: { signal: AbortSignal }) => new Promise<Response>((_resolve, reject) => {
+      signal.addEventListener('abort', () => reject(new DOMException('The operation was aborted.', 'AbortError')), { once: true });
+    }));
+    vi.stubGlobal('fetch', fetch);
+
+    const command = new SabnzbdApi(config, log).pauseQueue();
+    const timeout = expect(command).rejects.toThrow(`SABnzbd request timed out after ${config.timeoutMs}ms.`);
+    const signal = fetch.mock.calls[0]?.[1].signal;
+    await vi.advanceTimersByTimeAsync(config.timeoutMs - 1);
+    expect(signal?.aborted).toBe(false);
+    await vi.advanceTimersByTimeAsync(1);
+
+    await timeout;
+    expect(signal?.aborted).toBe(true);
+  });
+
+  it('reports a rejected command even if the HTTP response was successful', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(Response.json({ status: false })));
+
+    await expect(new SabnzbdApi(config, log).resumeQueue()).rejects.toThrow('SABnzbd command failed.');
   });
 });

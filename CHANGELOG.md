@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-20
+
+### Tests
+
+- Cover failed snapshot requests, command timeouts, rejected commands and opt-in warning clearing.
+
 ### Changed
 
 - Reworked README documentation using the structure of the companion Homebridge plugin documentation.
