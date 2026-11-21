@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.2-beta.0] - 2026-11-21
+
+- Validate the plugin on Node.js 26 with Homebridge 2.5.0.
+- Publish beta tags on the npm `beta` channel.
+
 ## [0.1.1] - 2026-11-20
 
 ### Tests

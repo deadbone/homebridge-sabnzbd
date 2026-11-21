@@ -21,7 +21,7 @@ HTTPS can be configured by using an `https://` URL. The plugin does not disable 
 ### Compatibility
 
 - Homebridge: `^2.0.0`
-- Node.js: `^22 || ^24`
+- Node.js: `^22 || ^24 || ^26`. Node.js 26 requires Homebridge 2.5.0 or later.
 - SABnzbd: stable 5.x API, developed against SABnzbd 5.0.4
 - Plugin type: dynamic platform
 - Module format: ESM
@@ -196,7 +196,7 @@ Tests mock the SABnzbd API and do not require a real SABnzbd instance.
 
 ### Publishing
 
-Publishing is automated through GitHub Actions and npm Trusted Publishing. No npm token is required or configured in GitHub.
+After the first authenticated publication creates the package on npm, later releases use GitHub Actions and npm Trusted Publishing.
 
 Before the first automated publish, configure the npm package Trusted Publisher:
 
@@ -215,7 +215,7 @@ Release checklist:
 5. Create and push a matching tag, for example `git tag v0.1.0 && git push origin v0.1.0`.
 6. Create the GitHub Release after the workflow publishes the package.
 
-The publish workflow runs only for tags matching `v*`. It installs Node.js 24.x and the latest npm, runs `npm ci`, verifies that the tag is exactly `v${package.json.version}`, runs lint, build, tests, and `npm pack --dry-run`, then publishes with `npm publish` using npm Trusted Publishing.
+The publish workflow checks the tag against `package.json`. Tags such as `v0.1.2-beta.0` publish under `beta` and stable tags publish under `latest`. Both channels run lint, build, tests, and `npm pack --dry-run` before publication.
 
 For a future scoped package, use `npm publish --access=public` in the workflow for the first scoped publication.
 
@@ -238,7 +238,7 @@ HTTPS peut être configuré avec une URL `https://`. Le plugin ne désactive pas
 ### Compatibilite
 
 - Homebridge : `^2.0.0`
-- Node.js : `^22 || ^24`
+- Node.js : `^22 || ^24 || ^26`. Node.js 26 nécessite Homebridge 2.5.0 ou une version ultérieure.
 - SABnzbd : API stable 5.x, développé contre SABnzbd 5.0.4
 - Type de plugin : plateforme dynamique
 - Format de module : ESM
@@ -413,7 +413,7 @@ Les tests simulent l'API SABnzbd et ne nécessitent pas d'instance réelle.
 
 ### Publication
 
-La publication est automatisée via GitHub Actions et npm Trusted Publishing. Aucun token npm n'est requis ou configuré dans GitHub.
+La première publication authentifiée crée le paquet sur npm. Les versions suivantes utilisent GitHub Actions et npm Trusted Publishing.
 
 Avant la première publication automatisée, configurez le Trusted Publisher du paquet npm :
 
@@ -432,6 +432,6 @@ Checklist de release :
 5. Créer et pousser un tag correspondant, par exemple `git tag v0.1.0 && git push origin v0.1.0`.
 6. Créer la GitHub Release après publication du paquet par le workflow.
 
-Le workflow de publication s'exécute uniquement pour les tags `v*`. Il installe Node.js 24.x et la dernière version de npm, lance `npm ci`, vérifie que le tag correspond exactement à `v${package.json.version}`, exécute lint, build, tests et `npm pack --dry-run`, puis publie avec `npm publish` via npm Trusted Publishing.
+Le workflow vérifie le tag à partir de `package.json`. Les tags tels que `v0.1.2-beta.0` publient sous `beta` et les tags stables sous `latest`. Les deux canaux exécutent le lint, la compilation, les tests et `npm pack --dry-run` avant la publication.
 
 Pour un futur paquet scopé, utiliser `npm publish --access=public` dans le workflow lors de la première publication scopée.

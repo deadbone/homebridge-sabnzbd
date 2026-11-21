@@ -3,7 +3,7 @@
 ## Requirements
 
 - Homebridge `^2.0.0`
-- Node.js `^22 || ^24`
+- Node.js `^22 || ^24 || ^26`. Node.js 26 requires Homebridge 2.5.0 or later.
 - SABnzbd stable 5.x API
 
 ## Homebridge UI
@@ -37,7 +37,7 @@ Then add the `Sabnzbd` platform in your Homebridge configuration.
 ## Prérequis
 
 - Homebridge `^2.0.0`
-- Node.js `^22 || ^24`
+- Node.js `^22 || ^24 || ^26`. Node.js 26 nécessite Homebridge 2.5.0 ou une version ultérieure.
 - API SABnzbd stable 5.x
 
 ## Homebridge UI

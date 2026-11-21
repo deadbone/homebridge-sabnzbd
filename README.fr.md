@@ -11,7 +11,7 @@ Plugin de plateforme dynamique Homebridge permettant de superviser et piloter un
 ## Compatibilite
 
 - Homebridge : `^2.0.0`
-- Node.js : `^22 || ^24`
+- Node.js : `^22 || ^24 || ^26`. Node.js 26 nécessite Homebridge 2.5.0 ou une version ultérieure.
 - SABnzbd : API stable 5.x, développé contre SABnzbd 5.0.4
 - Type de plugin : plateforme dynamique
 - Format de module : ESM
